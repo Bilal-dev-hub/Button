@@ -1,0 +1,52 @@
+body {
+    background: rgb(43, 42, 42);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+button {
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+    background: black;
+    color: #fff;
+    border: none;
+    position: relative;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(-45deg, yellow, rgb(0, 254, 0));
+    z-index: -1;
+    inset: 0;
+    width: 128px;
+    height: 48px;
+    left: -4px;
+    top: -4px;
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+button::after {
+    content: "";
+    background: linear-gradient(-45deg, yellow, rgb(0, 254, 0));
+    position: absolute;
+    transform: scale(0.95);
+    filter: blur(20px);
+    z-index: -1;
+    inset: 0;
+}
+
+button:hover::after {
+    filter: blur(30px);
+}
+
+button:hover::before {
+    transform: rotate(-180deg);
+}
